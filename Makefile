@@ -1,0 +1,9 @@
+install:
+	for dep in `cat dependencies`; do \
+		echo "Installing $${dep}"; go get -v $${dep}; \
+	done
+	go get -d -v ./...
+	go build -v ./...
+
+test:
+	go test -v ./...
